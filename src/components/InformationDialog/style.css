@@ -1,0 +1,10 @@
+.InformationDialog {
+    background: burlywood;
+}
+span {
+    display: block;
+}
+
+.InformationDialog > Chip {
+    display: block;
+}
