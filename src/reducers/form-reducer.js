@@ -6,11 +6,9 @@ const initialState = {
 
 export default function formReducer(state = initialState, {type, payload}) {
   switch (type) {
-    case formConstants.ADD_FORM:
+    case formConstants.SUBMIT_FORM:
       window.localStorage.setItem("theForm", JSON.stringify(payload)); // is it good place?
-      return Object.assign({}, state, {
-        data: state.data.concat(payload)
-      });
+      return {...state, data: payload}
     default:
       return state;
   }

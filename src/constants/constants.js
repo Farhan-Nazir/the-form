@@ -1,3 +1,3 @@
 export const formConstants = {
-  ADD_FORM:"ADD_FORM"
+  SUBMIT_FORM:"SUBMIT_FORM"
 };
