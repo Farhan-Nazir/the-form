@@ -1,36 +1,17 @@
 import React from "react";
+import store from "../../store";
 import {
   Dialog,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Chip,
-  Typography,
-  Button
+  Typography
 } from "@material-ui/core";
-import { makeStyles } from '@material-ui/styles';
-import { CheckCircleOutline, FaceOutlined } from "@material-ui/icons";
-import "./style.css";
-import NewButton from "../Button/Button";
-
-
-const useStyles = makeStyles({
-  root: {
-   // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    display: "block"
-  },
-});
+import { CheckCircleOutline } from "@material-ui/icons";
 
 class InformationDialog extends React.Component {
   state = {
-    open: false,
-    data: this.props.data
+    open: false
   };
 
   //Handle Agree
@@ -42,59 +23,51 @@ class InformationDialog extends React.Component {
     this.props.dialogResponse(false);
   };
 
+  showFieldsAfterSubmit = () => {
+    const data = store.getState().formReducer.data;
+    const res = [];
+    for (let [key, value] of Object.entries(data)) {
+      res.push(value);
+    }
+    return res.map((i, index) => {
+      if (i.length > 0)
+        return (
+          <Chip
+            icon={<CheckCircleOutline />}
+            label={i}
+            color="primary"
+            size="medium"
+            variant="outlined"
+            key={index}
+          />
+        );
+    });
+  };
+
   render() {
-   
-    const { data } = this.state;
     return (
-      
-        <Dialog
-          open={this.props.open}
-          onClose={this.handleClose}
-          aria-labelledby="responsive-dialog-title"
-          onExit={this.props.onExit}
-          
-        >
-          <DialogTitle id="responsive-dialog-title">
-            <h2>Submission Successful</h2>
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              <h4>Following Information Submitted Successfully</h4>
-              </DialogContentText>
-              
-              <Chip
-                icon={<CheckCircleOutline />}
-                label={data.firstName}
-                color="primary"
-                size="medium"
-                variant="outlined"
-              />
-              
-              <Chip
-                icon={<CheckCircleOutline />}
-                label={data.lastName}
-                color="primary"
-                size="medium"
-                variant="outlined"
-              />
-              <Chip
-                icon={<CheckCircleOutline />}
-                label={data.email}
-                color="primary"
-                size="medium"
-                variant="outlined"
-              />
-              <Chip
-                icon={<CheckCircleOutline />}
-                label={data.address}
-                color="primary"
-                size="medium"
-                variant="outlined"
-              />
-            <Typography>You may close this window, Thank you</Typography>
-          </DialogContent>
-        </Dialog>
-      
+      <Dialog
+        open={this.props.open}
+        onClose={this.handleClose}
+        aria-labelledby="responsive-dialog-title"
+        onExit={this.props.onExit}
+        maxWidth={"lg"}
+      >
+        <DialogTitle id="responsive-dialog-title">
+          Thank you for getting in touch!
+        </DialogTitle>
+        <DialogContent>
+          <Typography variant={"subtitle1"}>
+            Following information has been submitted
+          </Typography>
+
+          {this.showFieldsAfterSubmit()}
+
+          <Typography variant={"subtitle2"}>
+            You may close this window.
+          </Typography>
+        </DialogContent>
+      </Dialog>
     );
   }
 }

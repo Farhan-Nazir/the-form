@@ -1,45 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Rufina&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background:  no-repeat center center fixed; 
-    background-image: linear-gradient(
-        to right bottom,
-        #9999991f,
-        #c8c8c8de,
-        #f8ffffef
-      ),url("https://cdn.pixabay.com/photo/2017/12/10/20/56/feather-3010848_960_720.jpg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    text-align: center;
-    font-family: 'Rufina', serif;
-    position: relative;
-   
-
+  background: no-repeat center center fixed;
+  background-image: linear-gradient(
+      to right bottom,
+      #9999991f,
+      #c8c8c8de,
+      #979797ef
+    ),
+    url("https://cdn.pixabay.com/photo/2017/04/03/17/24/teamwork-2198961_960_720.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  font-family: "Nanum Gothic", sans-serif;
+  position: relative;
+}
+.title {
+  margin-top: 0.3em;
 }
 
 .main {
-    width: 70vh;
-    margin-top: 10%;
-    margin-left: 35%;
-    position: absolute;
-    
-
+  background: whitesmoke;
+  border: solid white 2px;
+  width: 70vh;
+  margin-top: 10%;
+  margin-left: 35%;
+  position: absolute;
+  box-shadow: 3px 3px 5px 6px rgb(104, 103, 103);
 }
 .the-form {
-    padding: 1em;
+  padding: 1em;
 }
 
 .the-form > div {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 .btn-submit {
-    padding: 1em;
-
+  padding: 1em;
 }

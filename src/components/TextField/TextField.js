@@ -35,9 +35,8 @@ const NewTextField = ({
         required={isRequired}
         rows={rows}
         type={type}
-        margin="normal"
         autoFocus={isAutoFocus}
-        style={{ width: "70%" }}
+        style={{ width: "75%" }}
         error={isError}
         disabled={isDisabled}
       />
